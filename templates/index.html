@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>m161awm.kr</title>
+  <meta
+    name="description"
+    content="m161awm personal cyberpunk homepage - Linux, Server, Network, Cloud"
+  />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="screen-overlay"></div>
+  <div class="scanline"></div>
+
+  <div class="wrap">
+    <header class="topbar">
+      <div class="topbar-left">
+        <div class="brand">M161AWM.KR</div>
+        <div class="brand-sub">내 서버 연구소</div>
+      </div>
+
+      <div class="topbar-center">
+        <div class="status-chip">STATUS : ONLINE</div>
+        <div class="status-chip">MODE : ACTIVE</div>
+        <div class="status-chip">NODE : m161awm.kr</div>
+      </div>
+
+      <div class="topbar-right">
+        <div class="clock-box">
+          <div class="clock-label">LOCAL TIME</div>
+          <div id="clock">--:--:--</div>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <!-- LEFT -->
+      <aside class="left-column">
+        <section class="panel radar-panel">
+          <div class="panel-header">
+            <span>SYSTEM SCAN</span>
+            <span class="panel-code">AIR-FORCE-HUB</span>
+          </div>
+
+          <div class="radar-box">
+            <div class="radar">
+              <div class="radar-dot dot-1"></div>
+              <div class="radar-dot dot-2"></div>
+              <div class="radar-dot dot-3"></div>
+            </div>
+          </div>
+
+          <div class="mini-status-grid">
+            <div class="mini-status">
+              <strong>OS</strong>
+              <span>Rocky Linux</span>
+            </div>
+            <div class="mini-status">
+              <strong>WEB</strong>
+              <span>Nginx</span>
+            </div>
+            <div class="mini-status">
+              <strong>SSH</strong>
+              <span>Enabled</span>
+            </div>
+            <div class="mini-status">
+              <strong>NET</strong>
+              <span>External Access</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel menu-panel">
+          <div class="panel-header">
+            <span>MODULE SELECT</span>
+            <span class="panel-code">PRIMARY MENU</span>
+          </div>
+
+          <div class="menu-grid">
+            <button
+              class="menu-btn active"
+              data-title="ABOUT / PROFILE"
+              data-desc="서버를 직접 구축하고, 리눅스 환경에서 웹서버를 운영하며 실습 중심으로 성장하고 있는 학습자입니다. 단순히 이론만 보는 것이 아니라, 실제 배포와 문제 해결, 외부 접속 구성, 네트워크 흐름 이해까지 직접 해보는 과정을 중요하게 생각합니다."
+              data-visual="PROFILE DATA"
+              data-tag="IDENTITY"
+            >
+              <span class="menu-btn-title">ABOUT</span>
+              <span class="menu-btn-sub">나에 대한 설명 보기</span>
+            </button>
+
+            <button
+              class="menu-btn"
+              data-title="SKILL / STACK"
+              data-desc="현재 배우고 있거나 실습 중인 분야는 Rocky Linux, Nginx, SSH, 네트워크 기초, 서버 배포, 포트포워딩, Docker, 클라우드 기초입니다. 앞으로는 활용도 강화, AWS 실습, 자동화, DevOps 방향으로 확장할 계획입니다."
+              data-visual="TECH STACK"
+              data-tag="STACK"
+            >
+              <span class="menu-btn-title">SKILLS</span>
+              <span class="menu-btn-sub">기술 스택 보기</span>
+            </button>
+
+            <button
+              class="menu-btn"
+              data-title="PROJECT / HOME SERVER"
+              data-desc="직접 리눅스 서버를 세팅하고, nginx 웹서버를 구동하며, 공유기 포트포워딩과 네트워크 구성을 통해 외부에서도 접속 가능한 형태로 홈페이지를 운영하는 경험을 쌓고 있습니다. 작은 결과물이라도 실제 서비스처럼 다뤄보는 것을 목표로 합니다."
+              data-visual="HOME SERVER NODE"
+              data-tag="PROJECT"
+            >
+              <span class="menu-btn-title">PROJECTS</span>
+              <span class="menu-btn-sub">현재 진행 방향 보기</span>
+            </button>
+
+            <button
+              class="menu-btn"
+              data-title="LINK / EXTERNAL NETWORK"
+              data-desc="Velog에는 공부 기록과 정리 글을, GitHub에는 코드와 프로젝트를, Instagram에는 개인적인 분위기와 일상을 연결해 두었습니다. 이 홈페이지는 외부 링크들을 하나의 허브처럼 묶는 역할도 합니다."
+              data-visual="NETWORK LINK MAP"
+              data-tag="LINK"
+            >
+              <span class="menu-btn-title">LINKS</span>
+              <span class="menu-btn-sub">외부 링크 설명 보기</span>
+            </button>
+
+            <button
+              class="menu-btn"
+              data-title="ROADMAP / NEXT STEP"
+              data-desc="다음 단계 목표는 클라우드 환경에서 서버를 운영해 보고, IaC와 CI/CD 같은 자동화 개념까지 연결하는 것입니다. 지금의 홈서버 경험을 기반으로 점점 더 실제 인프라 구조에 가까운 방향으로 확장할 생각입니다."
+              data-visual="NEXT PHASE"
+              data-tag="ROADMAP"
+            >
+              <span class="menu-btn-title">ROADMAP</span>
+              <span class="menu-btn-sub">앞으로의 방향 보기</span>
+            </button>
+          </div>
+        </section>
+      </aside>
+
+      <!-- CENTER -->
+      <section class="center-column">
+        <section class="panel hero-panel">
+          <div class="hero-topline">PERSONAL CYBER HOMEPAGE</div>
+
+          <div class="hero-content">
+            <div class="hero-text">
+              <h1>
+                m161awm<br />
+                <span>NEON NODE</span>
+              </h1>
+
+              <p>
+                안녕하세요, 현 세명컴퓨터고등학교 55기 학생 구본무 입니다.
+                경험하며 배우는 제 개인 실험형 홈페이지입니다. 각 패널을 눌러 현재 상태와 설명을 확인할 수 있습니다.
+              </p>
+
+              <div class="hero-links">
+                <a
+                  class="link-btn"
+                  href="https://velog.io/@m161awm/posts"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Velog
+                </a>
+
+                <a
+                  class="link-btn"
+                  href="https://github.com/m161awm2"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub
+                </a>
+
+                <a
+                  class="link-btn"
+                  href="https://www.instagram.com/m161awm2/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Instagram
+                </a>
+              </div>
+            </div>
+
+            <div class="hero-sidebox">
+              <div class="sidebox-label">LIVE STATUS</div>
+              <div class="sidebox-list">
+                <div class="side-row">
+                  <span>NODE</span>
+                  <strong>ONLINE</strong>
+                </div>
+                <div class="side-row">
+                  <span>WEB SERVICE</span>
+                  <strong>RUNNING</strong>
+                </div>
+                <div class="side-row">
+                  <span>PROFILE</span>
+                  <strong>ACTIVE</strong>
+                </div>
+                <div class="side-row">
+                  <span>NEXT STEP</span>
+                  <strong>DOCKER / CLOUD</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel main-display-panel">
+          <div class="main-display">
+            <div class="display-left">
+              <div class="display-tag" id="infoTag">IDENTITY</div>
+
+              <div class="display-visual">
+                <div class="visual-core" id="visualBox">PROFILE DATA</div>
+                <div class="visual-corner visual-corner-tl"></div>
+                <div class="visual-corner visual-corner-tr"></div>
+                <div class="visual-corner visual-corner-bl"></div>
+                <div class="visual-corner visual-corner-br"></div>
+              </div>
+
+              <div class="display-graph">
+                <div class="graph-label">GRAPH_01</div>
+                <div class="graph-line">
+                  <span></span><span></span><span></span><span></span><span></span>
+                  <span></span><span></span><span></span><span></span><span></span>
+                  <span></span><span></span><span></span><span></span><span></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="display-right">
+              <div class="info-label">SELECTED MODULE</div>
+              <h2 class="info-title" id="infoTitle">ABOUT / PROFILE</h2>
+              <p class="info-desc" id="infoDesc">
+                서버를 직접 구축하고, 리눅스 환경에서 웹서버를 운영하며 실습 중심으로 성장하고 있는 학습자입니다.
+                단순히 이론만 보는 것이 아니라, 실제 배포와 문제 해결, 외부 접속 구성, 네트워크 흐름 이해까지 직접 해보는 과정을 중요하게 생각합니다.
+              </p>
+
+              <div class="info-detail-box">
+                <div class="info-detail">
+                  <span>CURRENT FOCUS</span>
+                  <strong id="focusText">실습 중심 학습</strong>
+                </div>
+                <div class="info-detail">
+                  <span>ENVIRONMENT</span>
+                  <strong id="envText">Linux / Home Server</strong>
+                </div>
+                <div class="info-detail">
+                  <span>MISSION</span>
+                  <strong id="missionText">배포와 운영 경험 축적</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel stats-panel">
+          <div class="panel-header">
+            <span>QUICK STATS</span>
+            <span class="panel-code">LIVE SUMMARY</span>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-box">
+              <strong>Linux</strong>
+              <span>Rocky Linux 기반 서버 실습</span>
+            </div>
+            <div class="stat-box">
+              <strong>Nginx</strong>
+              <span>정적 페이지 서비스 및 웹서버 운영</span>
+            </div>
+            <div class="stat-box">
+              <strong>Network</strong>
+              <span>포트포워딩 / 외부 접속 구조 학습</span>
+            </div>
+            <div class="stat-box">
+              <strong>Docker</strong>
+              <span>다음 단계 핵심 목표</span>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- RIGHT -->
+      <aside class="right-column">
+        <section class="panel submodule-panel">
+          <div class="panel-header">
+            <span>SUB MODULES</span>
+            <span class="panel-code">CLICK TO INSPECT</span>
+          </div>
+
+          <div class="mini-panels">
+            <button
+              class="mini-card"
+              data-title="ROCKY LINUX"
+              data-desc="개인 서버 구축과 실습용 운영체제로 Rocky Linux를 사용하며 리눅스 명령어, 서비스 관리, 웹서버 운영, SSH 접속 같은 기본기를 실제 환경에서 익히고 있습니다."
+              data-visual="ROCKY LINUX"
+              data-tag="OS"
+            >
+              <h3>Rocky Linux</h3>
+              <p>리눅스 기반 서버 실습</p>
+            </button>
+
+            <button
+              class="mini-card"
+              data-title="NGINX WEB SERVER"
+              data-desc="nginx를 이용해 정적 웹페이지를 서비스하고, 서버가 실제로 어떻게 열리고 동작하는지 체감하며 학습하고 있습니다. 단순 실행이 아니라 서비스 운영의 감각을 익히는 단계입니다."
+              data-visual="NGINX SERVICE"
+              data-tag="WEB"
+            >
+              <h3>Nginx</h3>
+              <p>웹서버 운영과 배포</p>
+            </button>
+
+            <button
+              class="mini-card"
+              data-title="SSH REMOTE ACCESS"
+              data-desc="원격 접속을 통해 서버를 관리하고, 서비스 상태를 확인하며, 실제 서버 운영 흐름을 경험하고 있습니다. SSH는 리눅스 서버 관리의 핵심 도구 중 하나입니다."
+              data-visual="SSH REMOTE"
+              data-tag="ACCESS"
+            >
+              <h3>SSH</h3>
+              <p>원격 관리와 운영</p>
+            </button>
+
+            <button
+              class="mini-card"
+              data-title="NETWORK ACCESS"
+              data-desc="포트포워딩, IP, 외부 접속, 도메인 연결 같은 개념을 직접 구성해 보며 네트워크가 서비스 공개에 어떤 역할을 하는지 이해하고 있습니다."
+              data-visual="NETWORK ACCESS"
+              data-tag="NETWORK"
+            >
+              <h3>Network</h3>
+              <p>외부 공개 구조 이해</p>
+            </button>
+
+            <button
+              class="mini-card"
+              data-title="DOCKER LEARNING PATH"
+              data-desc="서비스를 컨테이너 단위로 배포하고 실행 환경을 일정하게 관리하기 위해 Docker를 학습 중입니다. 앞으로 인프라와 DevOps 방향으로 확장할 때 중요한 축이 될 예정입니다."
+              data-visual="DOCKER CONTAINER"
+              data-tag="CONTAINER"
+            >
+              <h3>Docker</h3>
+              <p>다음 단계 핵심 확장</p>
+            </button>
+
+            <button
+              class="mini-card"
+              data-title="CLOUD EXPANSION"
+              data-desc="현재의 홈서버 경험을 기반으로 AWS 같은 클라우드 환경에서 서버를 구성하고, 더 안정적이고 확장 가능한 구조를 경험하는 방향으로 나아가려 합니다."
+              data-visual="CLOUD NODE"
+              data-tag="CLOUD"
+            >
+              <h3>Cloud</h3>
+              <p>홈서버 다음 단계</p>
+            </button>
+          </div>
+        </section>
+
+        <section class="panel terminal-panel">
+          <div class="panel-header">
+            <span>TERMINAL LOG</span>
+            <span class="panel-code">SYS-TRACE</span>
+          </div>
+
+          <div class="terminal" id="terminalLog">
+            <div><span class="green">[BOOT]</span> initializing cyber interface...</div>
+            <div><span class="green">[INFO]</span> loading profile data...</div>
+            <div><span class="green">[INFO]</span> checking nginx service...</div>
+            <div><span class="green">[OK]</span> web service online</div>
+            <div><span class="green">[OK]</span> node ready for interaction</div>
+            <div><span class="green">[READY]</span> click panels to inspect modules</div>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <div>© 2026 by m161awm</div>
+      <div>Rocky Linux / Nginx / Personal Server Practice</div>
+    </footer>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
