@@ -10,7 +10,7 @@ def home():
         
         num2 = int(request.form['number02']) # !!!!!!!! HTML에서 값 가져오기@@@@@@@@@@@@@@
 
-        num3 = int(request.form['number02']) # !!!!!!!! HTML에서 값 가져오기@@@@@@@@@@@
+        num3 = int(request.form['number02']) # !!!!!!!! HTML에서 값 가져오기@@@@@@@@@@@ 정수값으로 반환해야함
         
         result =( num1+num2+num3)/ 3
 
