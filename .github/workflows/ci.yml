@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  check-and-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 코드 가져오기
+        uses: actions/checkout@v4
+
+      - name: Python 설치
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Flask 설치
+        run: pip install flask
+
+      - name: 파이썬 문법 검사
+        run: python -m py_compile app.py
+
+      - name: Docker 이미지 빌드
+        run: docker build -t flask-app .
