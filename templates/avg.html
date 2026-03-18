@@ -2,21 +2,24 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>계산기</title>
+    <title>점수 계산기</title>
 </head>
 <body>
 
     <form method="POST"> <!-- html 인풋 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
-        <input type="number" name="number01" placeholder="ko">
-        <button type="submit">입력</button>
-        <input type="number" name="number02" placeholder="eng">
-        <button type="submit">입력</button>
+        <input type="number" name="number01" placeholder="ko"> <!-- number01 이라는 수를 flask에 넘겨줌 -->                                                                
+        <input type="number" name="number02" placeholder="eng"> <!--위와 동일-->
         <input type="number" name="number03" placeholder="math">
         <button type="submit">입력</button>
+        <br>
+        <hr>
+        <br>
     </form>
 
     
-        <h2>평균: {{ result }}</h2>
+        <strong>평균: {{ avg_result }}</strong><br>
+        <strong>최대 점수 : {{ max_result }}<strong><br>
+        <strong>최소 점수 : {{ min_result }}<strong>
     
 
 </body>
