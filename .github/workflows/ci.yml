@@ -23,7 +23,7 @@ jobs:
         run: pip install flask
 
       - name: 파이썬 문법 검사
-        run: python -m py_compile app.py
+        run: python -m compile .
 
       - name: Docker 이미지 빌드
         run: docker build -t flask-app .
