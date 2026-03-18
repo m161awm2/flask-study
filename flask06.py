@@ -13,6 +13,8 @@ def home():
         num3 = int(request.form['number02']) # !!!!!!!! HTML에서 값 가져오기@@@@@@@@@@@
         
         result =( num1+num2+num3)/ 3
+    elif request.method=="GET":
+        return "homeP"
 
     return render_template("avg.html", result=result)
 app.run(host="0.0.0.0",port=5000)
