@@ -18,26 +18,32 @@ def init_db():
 
 @app.route("/", methods=["GET", "POST"])
 def home():
+    is_null = ""
     conn = sqlite3.connect("community.db")  # DB 연결
     c = conn.cursor()  # SQL 실행 도구
-
+    
     if request.method == "POST":
         nickname = request.form["nickName"]
         contents = request.form["contents"]
-
-        c.execute(
+        
+        if nickname != "" and contents != "":
+            c.execute(
             "INSERT INTO posts (nickname, contents) VALUES (?, ?)",  # 글 추가
             (nickname, contents)
         )
-        conn.commit()  # 추가한 내용 저장
-        conn.close()  # DB 닫기
-        return redirect("/")
+            conn.commit()  # 추가한 내용 저장
+            conn.close()  # DB 닫기
+            return redirect("/")
+        else:
+            is_null = "값을 입력하세요!!"
+            
+        
 
     c.execute("SELECT * FROM posts ORDER BY id DESC")  # 글 전체 조회(최신글 먼저)
     posts = c.fetchall()  # 조회한 결과 전부 가져오기
     conn.close()  # DB 닫기
 
-    return render_template("community_index.html", posts=posts)
+    return render_template("community_index.html", posts=posts, is_null=is_null)
 
 @app.route("/delete_all", methods=["POST"])
 def delete_all():

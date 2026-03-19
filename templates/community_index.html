@@ -13,6 +13,9 @@
         <input type="text" name="nickName" placeholder="닉네임">
         <input type="text" name="contents" placeholder="내용 입력">
         <button type="submit">작성하기</button>
+        {% if is_null %}
+        <p style="color:red;">{{ is_null }}</p>
+        {% endif %}
     </form>
     <form action="/delete_all" method="POST">
     <button type="submit">모든 글 삭제</button>
