@@ -17,10 +17,6 @@
         {% if is_null %}
         <p style="color:red;">{{ is_null }}</p>
         {% endif %}
-    </form>
-    <form action="/delete_all" method="POST">
-    <button type="submit">모든 글 삭제</button>
-    </form>
     <hr>
 
     {% for post in posts %}
