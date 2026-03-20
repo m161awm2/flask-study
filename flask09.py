@@ -43,8 +43,7 @@ def home():
             return redirect("/")
         else:
             is_null = "값을 입력하세요!!"
-            
-        
+  
 
     c.execute("SELECT * FROM posts ORDER BY id DESC")  # 글 전체 조회(최신글 먼저)
     posts = c.fetchall()  # 조회한 결과 전부 가져오기
@@ -52,13 +51,16 @@ def home():
 
     return render_template("community_index.html", posts=posts, is_null=is_null)
 
-@app.route("/delete_all", methods=["POST"])
-def delete_all():
-    conn = sqlite3.connect("community.db")  # DB 연결
-    c = conn.cursor()  # SQL 실행 도구
-    c.execute("DELETE FROM posts")  # posts 테이블의 글 전부 삭제
-    conn.commit()  # 삭제 내용 저장
-    conn.close()  # DB 닫기
+@app.route("/delete_this", methods=["POST"])
+def delete_this():
+    post_id = request.form["post_id"] # HTML에서 hidden input으로 전달된 글 id 받기
+
+    conn = sqlite3.connect("community.db") # community.db 데이터베이스 연결
+    c = conn.cursor() # SQL 실행용 커서 생성
+    c.execute("DELETE FROM posts WHERE id = ?", (post_id,)) # posts 테이블에서 id가 일치하는 글 1개만 삭제
+    conn.commit() # 삭제 내용을 실제 DB에 반영
+    conn.close() # DB 연결 종료
+
     return redirect("/")
 
 init_db()  # 처음 실행할 때 테이블 준비

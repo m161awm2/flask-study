@@ -26,6 +26,11 @@
     {% for post in posts %}
         <p>글쓴이 : {{ post[1] }} {{ post[4] }}</p>
         <p>{{ post[2] }}</p>
+        
+        <form action="/delete_this" method="POST">
+        <input type="hidden" name="post_id" value="{{ post[0] }}"> <!-- post [0] 값 post_id에 넣고 flask09에 보내기 위해 만듦 -->
+        <button type="submit">삭제하기</button>
+        </form>
         <hr>
     {% endfor %}
 </body>
