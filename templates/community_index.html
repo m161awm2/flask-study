@@ -12,6 +12,7 @@
     <form action="/" method="POST">
         <input type="text" name="nickName" placeholder="닉네임">
         <input type="text" name="contents" placeholder="내용 입력">
+        <input type="number" name="password" placeholder="비번 입력">
         <button type="submit">작성하기</button>
         {% if is_null %}
         <p style="color:red;">{{ is_null }}</p>
@@ -23,7 +24,7 @@
     <hr>
 
     {% for post in posts %}
-        <p>글쓴이 : {{ post[1] }}</p>
+        <p>글쓴이 : {{ post[1] }} {{ post[4] }}</p>
         <p>{{ post[2] }}</p>
         <hr>
     {% endfor %}
