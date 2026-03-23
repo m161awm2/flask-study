@@ -54,10 +54,14 @@ def home():
 @app.route("/delete_this", methods=["POST"])
 def delete_this():
     post_id = request.form["post_id"] # HTML에서 hidden input으로 전달된 글 id 받기
-
+    delete_password = request.form["delete_password"]
+    
     conn = sqlite3.connect("community.db") # community.db 데이터베이스 연결
     c = conn.cursor() # SQL 실행용 커서 생성
-    c.execute("DELETE FROM posts WHERE id = ?", (post_id,)) # posts 테이블에서 id가 일치하는 글 1개만 삭제
+    c.execute(
+    "DELETE FROM posts WHERE id = ? AND password = ?",
+    (post_id, delete_password)
+)
     conn.commit() # 삭제 내용을 실제 DB에 반영
     conn.close() # DB 연결 종료
 

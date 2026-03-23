@@ -25,8 +25,9 @@
         <p>{{ post[2] }}</p>
         
         <form action="/delete_this" method="POST">
-        <input type="hidden" name="post_id" value="{{ post[0] }}"> <!-- post [0] 값 post_id에 넣고 flask09에 보내기 위해 만듦 -->
-        <button type="submit">삭제하기</button>
+            <input type="hidden" name="post_id" value="{{ post[0] }}">
+            <input type="number" name="delete_password" placeholder="비밀번호 입력">
+            <button type="submit">삭제하기</button>
         </form>
         <hr>
     {% endfor %}
