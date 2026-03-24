@@ -69,3 +69,4 @@ def delete_this():
 
 init_db()  # 처음 실행할 때 테이블 준비
 app.run(host="0.0.0.0", port=5000, debug=True)
+
