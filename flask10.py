@@ -28,8 +28,8 @@ def flask10_sign_in():
 def flask10_login():
     return render_template('flask10_login.html')
 
-@app.route('/flask10_sign_in',methods=["POST"])
-def sign_in():
+@app.route('/flask10_sign_in',methods=["POST"]) # 회원가입을 처리하는거임 @@@@@@@@@@@@@@@@@
+def sign_in(): 
     conn = sqlite3.connect("login.db")
     c= conn.cursor()
     nickname = request.form["nickname"]
@@ -39,7 +39,7 @@ def sign_in():
     conn.close()
     return redirect('/')
 
-@app.route('/flask10_login',methods=["POST"])
+@app.route('/flask10_login',methods=["POST"]) # 로그인을 처리함 @@@@@@@@@@@@@@@@
 def login():
     userName = ""
     conn = sqlite3.connect("login.db")
