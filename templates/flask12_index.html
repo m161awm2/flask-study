@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>flask12</h1>
+    <form action="/" method="POST">
+        <input type="text" name="nickname" placeholder="닉네임">
+        <input type="text" name="title" placeholder="제목 입력">
+        <input type="text" name="contents" placeholder="내용 입력">
+        <input type="password" name="password" placeholder="비번 입력">
+        <button type="submit">작성</button>
+    </form>
+    <hr>
+    {% for post in posts %}
+        <div>
+            <h2>글쓴이: {{ post[1] }}</h2>
+            <p><a href="/detail/{{ post[0] }}">{{ post[2] }}</a></p>
+            <p>{{ post[3] }}</p>
+        </div>
+        <form action="/delete/{{ post[0] }}" method="POST">
+            <input type="password" name="password" placeholder="비번 입력">
+            <button type="submit">삭제</button>
+        </form>
+        <hr>
+    {% endfor %}
+</body>
+</html>
