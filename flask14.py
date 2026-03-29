@@ -7,7 +7,7 @@ def create_db():
     conn = pymysql.connect(
         host="localhost",
         user="root",
-        passwd="Zdzdsmsm44!"
+        passwd=""
     )
     c = conn.cursor()
     c.execute("CREATE DATABASE IF NOT EXISTS flask14")
@@ -18,7 +18,7 @@ def connector():
     return pymysql.connect(
         host="localhost",
         user="root",
-        passwd="Zdzdsmsm44!",
+        passwd="",
         database="flask14"
     )
 
@@ -77,7 +77,7 @@ def answer():
     else:
         conn.close()
         return redirect(f'/quests/{post_id}')
-    
+
 create_db()
 init_db()
 

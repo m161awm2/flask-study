@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+
+</head>
+<body>
+    Hello, {{ user }}
+    <form method="GET" action="/register_go" >
+        <button type="submit">회원가입</button>
+    </form>
+    <form method="GET" action="/login_go" >
+        <button type="submit">로그인</button>
+    </form>
+    <form method="GET" action="/write_go" >
+        <button type="submit">글쓰기</button>
+    </form>
+    <hr>
+    {% for post in posts %}
+        <div>
+            <a href="/post/{{ post[0] }}">{{ post[2] }}</a>
+            <small>{{ post[1] }} {{ post[4] }}</small>
+        </div>
+        <hr>
+    {% endfor %}
+</body>
+</html>

@@ -17,7 +17,7 @@
     <hr>
     {% for post in posts %}
         <div>
-            <strong>{{ post[1] }}</strong>
+            {{ post[1] }}
             <a href="/post/{{ post[0] }}">{{ post[2] }}</a>
             <small>{{ post[5] }}</small>
         </div>
