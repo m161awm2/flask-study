@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+        <div>
+            <h2>{{ post[2] }}</h2>
+            <p>{{ post[3] }}</p>
+            <small>{{ post[1] }}</small>
+            <form method="POST" action="/answer">
+                <input type="hidden" name="post_id" value="{{ post[0] }}">
+                <input type="text" name="answer" placeholder="정답 입력" required>
+                <button type="submit">제출</button>
+            </form>
+        </div>
+        <hr>
+
+</body>
+
+</html>
