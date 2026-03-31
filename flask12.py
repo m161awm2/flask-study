@@ -7,7 +7,7 @@ def make_db():
     conn = pymysql.connect(
         host="localhost",
         user="root",
-        passwd="Zdzdsmsm44!"
+        passwd=""
     )
     c = conn.cursor()
     c.execute("CREATE DATABASE IF NOT EXISTS test")
@@ -18,7 +18,7 @@ def connection():
     return pymysql.connect(
         host="localhost",
         user="root",
-        passwd="Zdzdsmsm44!",
+        passwd="",
         database="test"
     )
 
