@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>flask17</title>
+</head>
+<body>
+    <h2>유빈아카이브</h2>
+    <hr>
+    hello, {{ user }}
+    <form method="GET" action="/register_go" >
+        <button type="submit">회원가입</button>
+    </form>
+    <form method="GET" action="/login_go" >
+        <button type="submit">로그인</button>
+    </form>
+    <form method="GET" action="/write_go" >
+        <button type="submit">글쓰기</button>
+    </form>
+    <hr>
+    {% for post in posts %}
+        <div>
+            <a href="/post/{{ post[0] }}">{{ post[2] }}</a>
+            <small>{{ post[1] }}</small>
+        </div>
+        <hr>
+    {% endfor %}
+</body>
+</html>

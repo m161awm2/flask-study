@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+        <div>
+            <form>
+                <h2>{{ post[2] }}</h2>
+                <p>{{ post[3] }}</p>
+                <small>{{ post[1] }}</small>
+            </form>
+        </div>
+        <hr>
+        <form method="POST" action="/post/{{ post[0] }}">
+            <button type="submit">삭제하기</button>
+        </form>
+</body>
+
+</html>
