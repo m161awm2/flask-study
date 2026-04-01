@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask18</title>
+</head>
+<body>
+    <h1>Hello {{ nickname }}</h1>
+    <form action="/go_register" method="get">
+        <button type="submit">Register</button>
+    </form>
+    <form action="/go_login" method="get">
+        <button type="submit">Login</button>
+    </form>
+    <form action="/go_write" method="get">
+        <button type="submit">Write Post</button>
+    </form>
+    <hr>
+
+    {% if posts %}
+        {% for post in posts %}
+            <div>
+
+                <a href="/detail/{{ post[0] }}">{{ post[2] }}</a>
+                <div>{{ post[1] }}</div>
+            </div>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <p>No posts yet.</p>
+    {% endif %}
+</body>
+</html>

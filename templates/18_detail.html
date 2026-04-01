@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>{{ post[2] }}</h2>
+    <p>{{ post[3] }}</p>
+    <hr>
+    <small>written by: {{ post[1] }}</small>
+    <br>
+    <a href="/">Back to Home</a>
+    <br>
+    <form action="/detail/{{ post[0] }}" method="post" style="display:inline;">
+        <button type="submit">Like</button>
+    </form>
+    <br>
+    {% for like_user in like_users %}
+        <span>{{ like_user[1] }}</span>
+    {% endfor %}
+</body>
+</html>
