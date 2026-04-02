@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뉴스 상세 보기</title>
+</head>
+<body>
+    <h1>{{ article[2] }}</h1>
+    <p>{{ article[3] }}</p>
+    <a href="/">목록으로 돌아가기</a><hr>
+    <small>작성자: {{ article[1] }}</small>
+    <hr>
+    <form action="/news_detail/{{ article[0] }}" method="post">
+        <label for="comment_content">댓글:</label><br>
+        <textarea id="comment_content" name="comment_content" rows="4" cols="50" required></textarea><br><br>
+        <button type="submit">댓글 작성</button>
+    </form>
+        {% if comments %}
+            <h2>댓글 목록</h2>
+            <ul>
+                {% for comment in comments %}
+                    <li>{{ comment[1] }}: {{ comment[2] }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>댓글이 없습니다.</p>
+        {% endif %}
+    </form>
+</body>
+</html>
